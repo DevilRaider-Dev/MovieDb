@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>Movie-Db</title>
+    <style>
+        #bg-img-details {
+            background: url("https://image.tmdb.org/t/p/w1280<%= details.backdrop_path %>") center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="/">Home</a>
+        <input type="text" name="search" id="txt-search">
+        <button id="">Search</button>
+    </header>
+    <main>
+        <div id="bg-img-details"></div>
+        <section id=content-details>
+            <h2><%= details.title %> <span>- <%= details.tagline %> </span> </h2>
+            <p>Released: <%= details.release_date %></p>
+            <% details.genres.forEach(e => { %>
+            <p class=genre-details><%= e.name %> </p>
+            <% }) %>
+            <article>
+                <h3>Zusammenfassung</h3>
+                <p><%= details.overview %> </p>
+            </article>
+        </section>
+    </main>
+
+</body>
+
+</html>
