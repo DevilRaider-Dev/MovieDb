@@ -16,19 +16,34 @@
         <button id="">Search</button>
     </header>
     <main>
-        <section id="filter-genre">
-        </section>
+        <div id="filter-genre">
+        </div>
         <div id="list-movies">
-            <% movies.forEach(e => { %>
+            <% movies.results.forEach(e => { %>
             <a href="/details/<%= e.id %> ">
                 <figure>
-                    <img src="https://image.tmdb.org/t/p/w400<%= e.poster_path %>" alt="">
+                    <img src="https://image.tmdb.org/t/p/w400<%= e.poster_path %>" alt="<%= e.title %> ">
                     <figcaption>
                         <h3><%= e.title %> </h3>
                     </figcaption>
                 </figure>
             </a>
             <% }) %>
+        </div>
+        <div id="pages">
+            <% if (page<5) { %>
+            <% for( let index = 1; index < 10; index++ ) { %>
+            <button><a href="/movies/<%= index %> "><%= index %></a></button>
+            <% } %>
+            <% } else if (page>movies.total_pages-5) { %>
+            <% for( let index = movies.total_pages-8; index < movies.total_pages+1; index++ ) { %>
+            <button><a href="/movies/<%= index %> "><%= index %></a></button>
+            <% } %>
+            <% } else { %>
+            <% for( let index = page-4; index < page+5; index++ ) { %>
+            <button><a href="/movies/<%= index %> "><%= index %></a></button>
+            <% } %>
+            <% } %>
         </div>
     </main>
 
