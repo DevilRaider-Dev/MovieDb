@@ -10,6 +10,9 @@ const port = process.env.PORT;
 const app = express();
 app.use(express.static('public'));
 
+//view engine
+//app.set('view engine', 'ejs')
+
 //port listener
 app.listen(port, () => {
     console.log(`listening at http://localhost:${port}`);
@@ -18,7 +21,6 @@ app.listen(port, () => {
 //router
 app.get('/', (reg, res) => {
     res.redirect('/movies/1')
-    //res.render('pages/index.ejs');
 });
 
 //backup for uri manipulation
