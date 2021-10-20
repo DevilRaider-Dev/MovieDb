@@ -11,7 +11,7 @@ const app = express();
 app.use(express.static('public'));
 
 //view engine
-//app.set('view engine', 'ejs')
+app.set('view engine', 'ejs')
 
 //port listener
 app.listen(port, () => {
