@@ -9,7 +9,7 @@
     <title>Movie-Db</title>
     <style>
         #bg-img-details {
-            background: url("https://image.tmdb.org/t/p/original<%= details.backdrop_path %>") center;
+            background: url("https://image.tmdb.org/t/p/original<%= details.backdrop_path %>") center/contain;
         }
     </style>
 </head>
@@ -22,6 +22,9 @@
     </header>
     <main>
         <div id="bg-img-details"></div>
+        <form action="/addFavorite/<%= details.id %> " method="post">
+            <input type="submit" value="Add to Favorite">
+        </form>
         <section id=content-details>
             <h2><%= details.title %> <span>- <%= details.tagline %> </span> </h2>
             <p>Released: <%= details.release_date %></p>
